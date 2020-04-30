@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'login_screen.dart';
 
 void main(){
   runApp(SplashScreen());
@@ -28,7 +29,7 @@ class splashState extends State<SplashScreen>{
 
   route(){
     Navigator.push(context, MaterialPageRoute(
-      builder: (context) => WebScreen()
+      builder: (context) => LoginScreen()
       ));
   }
 
@@ -44,7 +45,7 @@ class splashState extends State<SplashScreen>{
           children:<Widget>[
             Padding(padding: EdgeInsets.all(20.0)),
             Container(
-              child: Image.asset("assets/logo_shop.png"),
+              child: Image.asset("assets/logo_shop.jpg"),
               height: 300.0,
               width: 250.0,
               color: Colors.blue,
