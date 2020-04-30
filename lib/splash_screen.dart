@@ -15,6 +15,24 @@ class SplashScreen extends StatefulWidget{
 
 class splashState extends State<SplashScreen>{
 
+    @override
+  void initState(){
+    super.initState();
+    startTimer();
+  }
+
+  startTimer() async{
+    var duration=Duration(seconds: 5);
+    return Timer(duration,route);
+  }
+
+  route(){
+    Navigator.push(context, MaterialPageRoute(
+      builder: (context) => WebScreen()
+      ));
+  }
+
+
  @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,6 +50,10 @@ class splashState extends State<SplashScreen>{
               color: Colors.blue,
             ),
             Padding(padding: EdgeInsets.only(top:20.0)),
+             CircularProgressIndicator(
+              backgroundColor: Colors.black,
+              strokeWidth: 1,
+            )
           ]
         ),),
       ),
