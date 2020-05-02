@@ -1,8 +1,11 @@
 import 'package:ecommerce_flutter/Animation/FadeAnimation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main(){
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     home:LoginScreen()
   ));
 }
@@ -19,98 +22,104 @@ class LoginState extends State<LoginScreen>{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
       body:Container(
         child: Column(
           children: <Widget>[
             Container(
-              height:400,
+              height:300,
               decoration: BoxDecoration(
                 image: DecorationImage(
                 image: AssetImage("assets/bg_img.png"),
-                fit: BoxFit.fill,
+                  fit: BoxFit.fill,
                 ),
               ),
               child: Stack(
                 children:<Widget>[
                 Positioned(
            left: 30,
-           width: 50,
-           height: 100,
-           top: 40,
-           child: FadeAnimation(1,
+           width: 40,
+           height: 60,
+           top: 60,
+           child: 
            Container(
-             decoration: BoxDecoration(
-               image: DecorationImage(
-                 image: AssetImage("assets/cart.png")
-               )
+             child: Column(
+               children: <Widget>[
+                 Image.asset("assets/cart.png",
+                   color: Colors.white,
+                 )
+               ],
              ),
-           )),
+           ),
            ),
             Positioned(
-           left: 130,
-           width: 80,
-           height: 150,
-           top: 30,
-           child: FadeAnimation(1.3,
+           left: 160,
+           width: 40,
+           height: 60,
+           top: 110,
+           child:
            Container(
-             decoration: BoxDecoration(
-               image: DecorationImage(
-                 image: AssetImage("assets/bell.png")
-               )
+             child: Column(
+               children: <Widget>[
+                 Image.asset("assets/bell.png",
+                   color: Colors.white,
+                 )
+               ],
              ),
-           )),
+           ),
            ),
             Positioned(
-           right: 40,
-           width: 80,
-           height: 100,
-           top: 20,
-           child: FadeAnimation(1.5,
+           right: 50,
+           width: 40,
+           height: 60,
+           top: 60,
+           child:
            Container(
-             decoration: BoxDecoration(
-               image: DecorationImage(
-                 image: AssetImage("assets/clock.png")
-               )
+             child: Column(
+               children: <Widget>[
+                 Image.asset("assets/alarm_clock.png",
+                   color: Colors.white,
+                 )
+               ],
              ),
-           )),
+           ),
            ),
            Positioned(
-             child: FadeAnimation(1.6,
+             child:
              Container(
-               margin: EdgeInsets.only(top:50),
+               margin: EdgeInsets.only(top:100),
                child: Center(
                  child: Text("Login",style: new TextStyle(
                    color:Colors.white,
-                   fontSize: 20,
+                   fontSize: 30,
                    fontWeight:FontWeight.bold,
                  ),
                  ),
                  ),
-             )),
+             ),
              ),
         ],
        ),
       ),
-      Padding
-       (
-        padding: EdgeInsets.all(30.0),
+      Padding(padding: EdgeInsets.all(8.0),
         child: Column(
         children:<Widget>[
-         FadeAnimation(1.7,
-         Container(
+          Container(
             padding: EdgeInsets.all(5.0),
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius:BorderRadius.circular(10),
+              borderRadius:BorderRadius.circular(15),
               boxShadow: [
                 BoxShadow(
                   color: Colors.deepPurple[100],
                   blurRadius: 20.0,
                   offset: Offset(0,10),
-                )
-              ]
+                ),
+              ],
             ),
             child: Column(
+
+              mainAxisSize: MainAxisSize.min,
               children:<Widget>[
                 Container(
                   padding:  EdgeInsets.all(8.0),
@@ -142,36 +151,65 @@ class LoginState extends State<LoginScreen>{
                 )
               ]
             ),
-          )),
-          SizedBox(
-            height:30,
           ),
-          FadeAnimation(2,
+          SizedBox(
+            height:10,
+          ),
           Container(
-            height: 50,
+            height: 60,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(15),
               gradient: LinearGradient(
-                Colors.deepPurple[500],
+                colors: <Color>[
+                   Colors.deepPurple[500],
                 Colors.deepPurple[300],
+                ],
               )
             ),
             child: Center(
               child: Text("Login",style: TextStyle(color:Colors.white,
-              fontSize: 20.0,fontWeight:FontWeight.bold),)
+              fontSize: 15.0,fontWeight:FontWeight.bold),)
             ),
-          )),
-          SizedBox(
-            height:20.0,
           ),
-          FadeAnimation(1.5,
+          SizedBox(
+            height:10.0,
+          ),
           Text("ForgotPassword?",style: TextStyle(color:Colors.deepPurple[500],
-              fontSize: 20.0,fontWeight:FontWeight.bold,
-              decoration: TextDecoration.underline),)),
-             ]
+              fontSize: 15.0,
+              decoration: TextDecoration.underline),
+          ),
+//          SizedBox(
+//            height:5.0,
+//          ),
+//          Text("New User?",style: TextStyle(color:Colors.deepPurple[500],
+//              fontSize: 15.0,
+//              decoration: TextDecoration.underline),
+//          ),
+          SizedBox(
+            height:10.0,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SvgPicture.asset(
+                "assets/google_logo.svg",
+                height:22.0,
+                color: Colors.deepPurple,
               ),
-            )
-            ],
+              SizedBox(
+                width:20.0,
+              ),
+              SvgPicture.asset(
+                "assets/apple_logo.svg",
+                height:25.0,
+                color: Colors.deepPurple,
+                 ),
+               ],
+              ),
+             ]
+            ),
+           )
+         ],
         )
       )
     );

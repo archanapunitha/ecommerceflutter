@@ -38,25 +38,24 @@ class splashState extends State<SplashScreen>{
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.deepPurpleAccent,
         body: Center(
           child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children:<Widget>[
-            Padding(padding: EdgeInsets.all(20.0)),
             Container(
-              child: Image.asset("assets/logo_shop.jpg"),
-              height: 300.0,
-              width: 250.0,
-              color: Colors.blue,
+              child: Image.asset("assets/logo.png"),
+              height: 200.0,
+              width: 150.0
             ),
             Padding(padding: EdgeInsets.only(top:20.0)),
              CircularProgressIndicator(
               backgroundColor: Colors.black,
               strokeWidth: 1,
-            )
-          ]
-        ),),
+            ),
+          ],
+        ),
+        ),
       ),
       );
   }
